@@ -73,6 +73,7 @@ public class AnagramtwoString {
 			freqArr[a.charAt(i) - 'a'] = freqArr[a.charAt(i) - 'a'] + 1;
 		}
 		System.out.println("freqArray: " + Arrays.toString(freqArr));
+
 		for (int i = 0; i < b.length(); i++) {
 			freqArr[b.charAt(i) - 'a'] = freqArr[b.charAt(i) - 'a'] - 1;
 		}
