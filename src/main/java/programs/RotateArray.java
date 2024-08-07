@@ -7,6 +7,7 @@ public class RotateArray {
 
 	public static void main(String[] args) {
 
+
 		/**Apporach-1
 		 * store into temp arr[0]
 		 * irtate from 1 to last index and 
