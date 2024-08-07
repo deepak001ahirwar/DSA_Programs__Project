@@ -75,9 +75,9 @@ public class MedianRowwiseMatrix {
             // calculate number of elements <= assumeMedian
             int lesserElement = calculateLesserElement(matrix, assumeMedian);
             if (lesserElement <= medain) { // compare with  medain
-                start = assumeMedian + 1; // search in left subarray
+                start = assumeMedian + 1; // search in right subarray
             } else {
-                end = assumeMedian - 1; // search in right subarray
+                end = assumeMedian - 1; // search in left subarray
             }
         }
         return start;
