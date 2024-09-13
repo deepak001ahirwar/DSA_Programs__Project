@@ -25,7 +25,8 @@ public class LongestPalindromicSubStr {
          *3- str is plindrone
          */
 
-        String str = "babad";
+//        String str = "babad";
+        String str = "bbbab";
 
         System.out.println("OriginalStr: " + str);
 
