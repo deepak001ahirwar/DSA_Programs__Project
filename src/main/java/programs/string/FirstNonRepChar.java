@@ -1,4 +1,4 @@
-package programs;
+package programs.string;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -19,7 +19,8 @@ public class FirstNonRepChar {
 		 *  2- return if the first value is 1
 		 */
 
-		String str="algorithm";
+		String str="geeksforgeeks";
+		//geeksforgeeks
 		System.out.println("str: "+str);
 		System.out.println("nonreptChar: "+nonreptChar(str));
 	}

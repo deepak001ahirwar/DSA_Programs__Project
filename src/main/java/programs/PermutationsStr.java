@@ -1,4 +1,5 @@
 package programs;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,19 +15,16 @@ public class PermutationsStr {
 
 		// Input: S = “ABC”
 		// Output: “ABC”, “ACB”, “BAC”, “BCA”, “CBA”, “CAB”
-
 		/*
 		 * Apporach-1 use back tracking and recurssion make the tree and itrate the str
 		 * from 0 to len-1 if the l==r then print current str else itrate l to r(len-1)
 		 * and call the swap function l to i and again call the permute function
-		 * 
 		 */
-		
 		String str="ABC";
-		
-		
+		getAllPermutaionStr(0,str);
 //		System.out.println();
-//		permutions(str,0,str.length()-1);
+		//		permutions(str,0,str.length()-1);
+
 		
 		// arrays types
 		
@@ -38,6 +36,22 @@ public class PermutationsStr {
 		
 
 	}
+
+	public static void  getAllPermutaionStr(int index, String str) {
+		// base conditions
+		if (index == str.length() - 1) {
+			System.out.println("getAllPermutaionStr: " + str);
+			return;
+		}
+		// for every index, swap the element at index with all elements from
+		// left side of index
+		for (int i = index; i < str.length(); i++) {
+			str = swap(str, index, i);
+			getAllPermutaionStr(index + 1, str);
+			str = swap(str, index, i);
+		}
+	}
+
 
 	public static void permutions(String str, int l, int r) {
 		// it means reach at last and first and last print str
@@ -56,19 +70,10 @@ public class PermutationsStr {
 	}
 
 	public static String swap(String str, int l, int i) {
-
-//		String temp=String.valueOf(str.charAt(l));		
 		char[] arr=str.toCharArray();
-				
 		arr[l]=str.charAt(i);
 		arr[i]=str.charAt(l);
-		
-		String tempStr= new String();
-		for(char ch:arr) {
-			tempStr=tempStr+ch;
-		}
-//		System.out.println("tempStr: "+tempStr);
-		return tempStr;
+		return String.valueOf(arr);
 	}
 	
 	
@@ -80,11 +85,15 @@ public class PermutationsStr {
 		} else {
 			for (int i = l; i <= r; i++) {
 				List<Integer> temp1 = swapArray(arr, l, i);
-				finalList.add(temp1);
+				if (finalList != null) {
+					finalList.add(temp1);
+				}
 				finalList = getPermutationsArray(temp1, arr, l + 1, r, finalList);
 				List<Integer> temp2 = swapArray(arr, l, i);
-				finalList.add(temp2);
-			}
+                if (finalList != null) {
+                    finalList.add(temp2);
+                }
+            }
 		}
 
 		return null;
@@ -92,7 +101,6 @@ public class PermutationsStr {
 	}
 	
 	public static List<Integer> swapArray(int arr[], int l, int i) {
-
 		int[] temparr = arr;
 		temparr[i] = arr[l];
 		temparr[l] = arr[i];
