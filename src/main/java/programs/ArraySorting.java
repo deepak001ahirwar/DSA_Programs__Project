@@ -8,6 +8,8 @@ public class ArraySorting {
 	 // use the bubble sorting simple sorting
 		
 		int arr[]= {3,1,9,6,2,4,7,10,5};
+
+
 				
 		System.out.println(Arrays.toString(bubblesort(arr)));
 		
