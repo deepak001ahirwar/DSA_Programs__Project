@@ -8,7 +8,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+class Employee {
 
+    int empId;
+    String empName;
+    double salary;
+    String department;
+    int age;
+
+
+}
 public class CustomSortingImpl {
 
 
@@ -74,16 +86,4 @@ public class CustomSortingImpl {
 
 }
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-class Employee {
 
-    int empId;
-    String empName;
-    double salary;
-    String department;
-    int age;
-
-
-}
