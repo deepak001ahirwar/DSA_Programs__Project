@@ -7,6 +7,7 @@ public class SearchRotatedSorted {
 		// int target =8;
 		// System.out.println(search(nums, target));
 
+
 		/**
 		 * Approch -2 
 		 * 1- first find the check the element pesent in 
@@ -101,15 +102,25 @@ public class SearchRotatedSorted {
 		return -1;
 	}
 
+	/*****
+	 * Approch -
+	 * 1- find the mid =()low+high)/2;
+	 * 2- we follow the approach to check one by in left sub array and right sub array the target
+	 * 3- first check if the target==arr[mid] then return the mid
+	 * 3- first we check the left subarray is sorted then  (arr[start]<=arr[mid])
+	 *    we have to check the target is present in left part
+	 *    (i) target >=arr[start] and target <arr[mid] move to left
+	 *       end=mid-1;
+	 *    (ii) otherwise  start=mid+1;
+	 * 4- otherwise right sub array is sorted
+	 *   we have to check the is target is present is right subarray
+	 *   (i) target >=arr[mid] and target<arr[end]
+	 *    the move to right start=mid+1;
+	 *    (ii) otherwise move to left
+	 *    end=mid-1;
+	 */
 	public static int search(int[] nums, int target) {
-		/*****
-		 * Approch - 
-		 * 1- find the mid =()low+high)/2;
-		 *  2-Then try to figure out if l to
-		 * mid is sorted, or (mid+1) to h is sorted
-		 *  3- divide the array into 2 sub array
-		 * 4- binary search in subarray
-		 */
+
 
 		int low = 0;
 		int len = nums.length;

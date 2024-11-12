@@ -25,7 +25,9 @@ public class CountInversion {
 //		System.out.println("InversionCount: " + getInversionCount(arr, arr.length));
 		
 		System.out.println("Inversion using mergesort: "+sort(arr,0,arr.length-1));
-	}	
+	}
+
+	// will not cover all the testcases
 	public static int getInversionCount(int arr[],int N) {	
 		long startT=System.currentTimeMillis();
         int count=0;
@@ -48,11 +50,7 @@ public class CountInversion {
 		long endT=System.currentTimeMillis();
 		long totaltime=endT-startT;
 		System.out.println("Total time taken- : "+totaltime+" milliseconds");
-		
 		return count;
-		
-		
-		
 	}
 	
 	public static int sort(int arr[],int l,int r) {
@@ -116,8 +114,7 @@ public class CountInversion {
         	// inversion required and need to swap
         	else {
         		arr[k]=tempB[j];
-//        		count+=(mid-i);
-        		//(m + 1) - (l + i)
+				//Count + =  (n1-i);
         		count+=(mid + 1) - (l + i);
         		j++;
         	}
