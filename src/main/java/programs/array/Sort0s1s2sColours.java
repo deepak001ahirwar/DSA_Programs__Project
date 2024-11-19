@@ -1,8 +1,6 @@
 package programs.array;
 import java.util.Arrays;
 
-import static programs.ThreeWayPartitioning.swap;
-
 public class Sort0s1s2sColours {
 
     public static void main(String[] args) {

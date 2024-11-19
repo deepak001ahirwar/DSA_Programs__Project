@@ -1,7 +1,8 @@
 package programs.string;
 
 
-import org.graalvm.collections.Pair;
+
+import ch.qos.logback.core.joran.sanity.Pair;
 
 import java.util.Arrays;
 
@@ -37,8 +38,10 @@ public class RearrangeCharacters {
         }
         System.out.println("freq Array " + Arrays.toString(freq));
         Pair<Character, Integer> max_charPair = maxFrequency(freq);
-        char maxChar = max_charPair.getLeft();
-        int maxCount = max_charPair.getRight();
+        char maxChar =  'a';
+//                max_charPair.getLeft();
+        int maxCount = 'a';
+//                max_charPair.getRight();
         System.out.println("maxChar " + maxChar + " maxCount " + maxCount);
         if (maxCount > (n + 1) / 2) {
             return "0";
@@ -78,7 +81,8 @@ public class RearrangeCharacters {
                 maxChar = (char) ('a' + i);
             }
         }
-        return Pair.create(maxChar, max);
+        return null;
+//        return Pair.create(maxChar, max);
     }
 
 

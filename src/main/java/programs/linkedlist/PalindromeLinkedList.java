@@ -1,32 +1,32 @@
 package programs.linkedlist;
 import java.util.Stack;
-import org.graalvm.collections.Pair;
+//import org.graalvm.collections.Pair;
 
 public class PalindromeLinkedList {
 
-    public static void main(String[] args) {
-
-
-//        Input: LinkedList: 1->2->1->1->2->1
-//        Output: true
-//        Explanation: The given linked list is 1->2->1->1->2->1 ,
-//                which is a palindrome and Hence, the output is true.
-
-        PalindromeLinkedList list = new PalindromeLinkedList();
-
-        // Creating the list: 1->2->1->1->2->1
-        Node head = new Node(1);
-        head.next = new Node(2);
-        head.next.next = new Node(1);
-        head.next.next.next = new Node(1);
-        head.next.next.next.next = new Node(2);
-        head.next.next.next.next.next = new Node(1);
-        System.out.println("Original List:");
-        list.printList(head);
-        System.out.println("\nAfter adding 1:");
-        boolean result = list.isPalindromeOptimal(head);
-        System.out.println(result);
-    }
+//    public static void main(String[] args) {
+//
+//
+////        Input: LinkedList: 1->2->1->1->2->1
+////        Output: true
+////        Explanation: The given linked list is 1->2->1->1->2->1 ,
+////                which is a palindrome and Hence, the output is true.
+//
+//        PalindromeLinkedList list = new PalindromeLinkedList();
+//
+//        // Creating the list: 1->2->1->1->2->1
+//        Node head = new Node(1);
+//        head.next = new Node(2);
+//        head.next.next = new Node(1);
+//        head.next.next.next = new Node(1);
+//        head.next.next.next.next = new Node(2);
+//        head.next.next.next.next.next = new Node(1);
+//        System.out.println("Original List:");
+//        list.printList(head);
+//        System.out.println("\nAfter adding 1:");
+//        boolean result = list.isPalindromeOptimal(head);
+//        System.out.println(result);
+//    }
     public void printList(Node node) {
         while (node != null) {
             System.out.print(node.data + " -> ");
