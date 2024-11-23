@@ -29,7 +29,6 @@ public class MoveLastElementFrontLL {
         curr.next = head;
         head = curr;
         return head;
-
     }
 
     class Node {

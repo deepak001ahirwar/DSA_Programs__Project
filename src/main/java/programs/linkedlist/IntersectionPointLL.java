@@ -13,7 +13,6 @@ public class IntersectionPointLL {
 //        Input: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3
 //        Output: Intersected at '8'
     }
-
     /**
      * 1- use the Map to store the Node
      * 2- first linkedlist store in the Map
@@ -38,8 +37,6 @@ public class IntersectionPointLL {
         }
         return 0;
     }
-
-
     /**
      * B- use the O(1) space complexity Apporch 2 pointer
      * 1- first cal the length of the l1 and l2 linkedlist
@@ -59,7 +56,6 @@ public class IntersectionPointLL {
             return collisionPoint(l2, l1, len1-len2);
         }
     }
-
     private static int collisionPoint(Node l1, Node l2, int diff) {
         Node temp1 = l1;
         Node temp2 = l2;
@@ -75,7 +71,6 @@ public class IntersectionPointLL {
         }
         return temp1.data;
     }
-
     private static int LinkedListlength(Node head) {
         Node temp = head;
         int length = 0;
@@ -85,7 +80,6 @@ public class IntersectionPointLL {
         }
         return length;
     }
-
     /**
      * C- Not search the length by itrating simple any
      * linkedList reach at the Null , point to opposite linkedList head
@@ -101,7 +95,6 @@ public class IntersectionPointLL {
         }
         return temp1.data;
     }
-
         class Node {
         int data;
         Node next;

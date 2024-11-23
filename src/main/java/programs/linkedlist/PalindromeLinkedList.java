@@ -65,9 +65,7 @@ public class PalindromeLinkedList {
            curr = curr.next;
        }
        return true;
-
     }
-
     /**
      * 1- use the slow fast pointer to cal the mid
      * 2- second half linkedList reverse and return the newHead
@@ -103,11 +101,7 @@ public class PalindromeLinkedList {
         }
         reverseLinkedList(slow.next);
         return true;
-
-
     }
-
-
         public static Node reverseLinkedList(Node head) {
         Node prev = null;
         Node current = head;

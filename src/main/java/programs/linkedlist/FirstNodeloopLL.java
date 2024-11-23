@@ -19,9 +19,7 @@ public class FirstNodeloopLL {
 //        Explanation:
 //        We can see that there exists a loop in the given linked
 //        list and the first node of the loop is 3
-
     }
-
     /**
      * 1- use the set to store the node
      * 2- itrate the loop  until curr!=null and check  if the node present in set then return the current node

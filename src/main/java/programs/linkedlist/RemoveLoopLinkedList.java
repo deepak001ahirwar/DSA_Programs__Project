@@ -12,10 +12,7 @@ public class RemoveLoopLinkedList {
             next = null;
         }
     }
-
-
-        // Remove loop in Linked List
-
+    // Remove loop in Linked List
     /**
      * A- bruth forch Apporch using set
      * 1- take the set that store the node amd prev node pointer with null
@@ -26,7 +23,7 @@ public class RemoveLoopLinkedList {
     public static void removeLoop(Node head) {
         Set<Node> set = new HashSet<Node>();
         Node prev = null;
-        while(head !=null) {
+        while (head != null) {
             if (set.contains(head)) {
                 prev.next = null;
                 return;
@@ -37,10 +34,7 @@ public class RemoveLoopLinkedList {
             }
         }
     }
-
-
     // optimal using the 2 pointer slow and fast algorithm
-
     /**
      * 1- first the same process to check the loop present then find the first element of loop
      * 2- then mantain the prev pointer update the prev.next = null
@@ -55,7 +49,6 @@ public class RemoveLoopLinkedList {
      * 11- when break the loop prev.next =null
      */
     public static void removeLoopOptimized(Node head) {
-
         Node slow = head;
         Node fast = head;
         Node prev = null;

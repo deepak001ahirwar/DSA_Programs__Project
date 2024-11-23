@@ -36,7 +36,6 @@ public class ReverseDoublyLinkedList {
         }
         // update the head with the
         head = temp.prev;
-
         return head;
 
     }

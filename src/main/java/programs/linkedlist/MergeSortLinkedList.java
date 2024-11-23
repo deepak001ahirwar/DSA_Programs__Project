@@ -14,11 +14,7 @@ public class MergeSortLinkedList {
 //        Input: LinkedList: 3->5->2->4->1
 //        Output: 1->2->3->4->5
 //        Explanation: After sorting the given linked list, the resultant matrix will be 1->2->3->4->5.
-
-
     }
-
-
     /**
      * 1- first divided linkedList into two half the apply merge
      * 2-take 3 pointer , slow , fast, prev = head
@@ -95,11 +91,7 @@ public class MergeSortLinkedList {
         temp.next = null;
         return ansHead;
     }
-
-
     //// optimal with afficent time complexity
-
-
     private Node mid(Node head) {
         if (head == null || head.next == null)
             return head;

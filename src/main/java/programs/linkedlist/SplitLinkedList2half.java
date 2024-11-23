@@ -1,6 +1,6 @@
-package programs.linkedlist;
-//import org.graalvm.collections.Pair;
-
+//package programs.linkedlist;
+////import org.graalvm.collections.Pair;
+//
 //public class SplitLinkedList2half {
 //
 //
@@ -53,7 +53,6 @@ package programs.linkedlist;
 //        }
 //        Node firstHalf = head;
 //        Node secondHalf = slow.next;
-//
 //        // check if even number of Node then move the fast at last node
 //        if (fast.next.next == head) {
 //            fast = fast.next;
@@ -65,25 +64,19 @@ package programs.linkedlist;
 //        // Return the pair of lists
 //        return Pair.create(firstHalf, secondHalf);
 //    }
-//
-//
 //    /**
 //     *
 //     * this split in linerar linedlist
 //     */
-//
 //    public Pair<Node, Node> splitList(Node head) {
-//
 //        Node slow = head;
 //        Node fast = head;
 //        while (fast.next!= head && fast.next.next!= head) {
 //            fast = fast.next.next;
 //            slow = slow.next;
 //        }
-//
 //        Node secondHalf = slow.next;
 //        slow.next = null;
-//
 //        if(fast.next==head){
 //            fast.next=null;
 //        }else{

@@ -9,17 +9,14 @@ public class Sort0s1s2sLL {
 //        Explanation: All the 0s are segregated to the left end of the linked list,
 //                2s to the right end of the list, and 1s in between
     }
-
     /**
      * A- simple implementation
      * 1- cal the count of 0,1,2
      * 2- check Count0 >0 fill the data in linkedlist data 0 and Count0--
      * 3- check Count1 >1 fill the data in linkedlist data 1 and Count1--
      * 4- check Count2 >2 fill the data in linkedlist data 2 and Count2--
-     *
      */
    public  static Node segregate(Node head) {
-
         if (head == null || head.next == null){
             return head;
         }
@@ -51,8 +48,6 @@ public class Sort0s1s2sLL {
         }
         return head;
     }
-
-
     /**
      * B- Optimal implementation
      * 1- use the three dummy node 0,1,2 Create the linkedList
@@ -61,7 +56,6 @@ public class Sort0s1s2sLL {
      * 4- connect it  and remove the dummyNode from
      */
     public  static Node segregateOptimal(Node head) {
-
         if (head == null || head.next == null) {
             return head;
         }
@@ -96,7 +90,6 @@ public class Sort0s1s2sLL {
             zeroTail.next=oneHead.next;
             oneTail.next=twoHead.next;
         }
-
         // delete the dummy node
         oneHead.next = null;
         twoHead.next = null;
@@ -104,7 +97,5 @@ public class Sort0s1s2sLL {
         zeroHead = zeroHead.next;
         t1.next = null;
         return zeroHead;
-
-
     }
     }

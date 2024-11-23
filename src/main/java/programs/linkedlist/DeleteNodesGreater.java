@@ -35,7 +35,6 @@ public class DeleteNodesGreater {
 
     /**
      * A- simple implementation O(n2) algorithm
-     *
      */
     public static Node compute(Node head) {
         // your code here

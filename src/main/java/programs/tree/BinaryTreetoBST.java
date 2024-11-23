@@ -27,28 +27,26 @@ public class BinaryTreetoBST {
      * 1- based binary search tree
      * 2- first we calculate the inOrder of current Tree store in the ArrayList
      * 3- sort the data using the Collection.sort()
-     *
      */
-    Node binaryTreeToBST(Node root)
-    {
+    Node binaryTreeToBST(Node root) {
         // Your code here
         ArrayList<Integer> al = new ArrayList<>();
         inorder(root, al);
         Collections.sort(al);
         replaceNode(root, al);
-       return  root;
+        return root;
     }
 
     private void replaceNode(Node root, ArrayList<Integer> al) {
         if (root == null)
-            return ;
-        replaceNode(root.left,  al);
+            return;
+        replaceNode(root.left, al);
         root.data = al.remove(0);
-        replaceNode(root.right,  al);
+        replaceNode(root.right, al);
     }
 
     // Helper function to find the inorder successor of a node in BST
-    public static void inorder(Node node, ArrayList<Integer> al){
+    public static void inorder(Node node, ArrayList<Integer> al) {
         if (node == null)
             return;
         inorder(node.left, al);

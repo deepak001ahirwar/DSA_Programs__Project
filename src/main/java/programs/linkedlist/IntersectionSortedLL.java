@@ -45,7 +45,6 @@ public class IntersectionSortedLL {
         }
         System.out.println("null");
     }
-
     /**
      * 1- take the two pointer temp and head to store the data
      * 2- itrate the while loop until the l1!=null or l2!=null
@@ -62,25 +61,24 @@ public class IntersectionSortedLL {
         }
         Node temp = null;
         Node head = null;
-        while(l1!=null||l2!=null) {
-            if(l1==null||l2==null) {
+        while (l1 != null || l2 != null) {
+            if (l1 == null || l2 == null) {
                 return head;
             }
-            if(l1.data==l2.data) {
-                if(head==null) {
+            if (l1.data == l2.data) {
+                if (head == null) {
                     Node newNode = new Node(l1.data);
                     head = newNode;
                     temp = head;
-                }else{
+                } else {
                     temp.next = new Node(l1.data);
                     temp = temp.next;
                 }
                 l1 = l1.next;
                 l2 = l2.next;
-            }else if(l1.data<l2.data){
+            } else if (l1.data < l2.data) {
                 l1 = l1.next;
-            }
-            else{
+            } else {
                 l2 = l2.next;
             }
         }

@@ -80,9 +80,7 @@ public class TreeTraversal {
                 curr = curr.right;
             }
         }
-
     }
-
     /**
      * 1- PreOrder Traversal use the stack and store the Node to stack
      * 2- itrate the while loop until the stack is not empty

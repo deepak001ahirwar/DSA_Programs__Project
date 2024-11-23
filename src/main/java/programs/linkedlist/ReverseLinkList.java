@@ -2,27 +2,21 @@ package programs.linkedlist;
 import java.util.LinkedList;
 
 public class ReverseLinkList {
-
     static Node head;
-
     static class Node {
         int data;
         Node next;
-
         Node(int d) {
             data = d;
             next = null;
         }
-
     }
-
     void printlist(Node list) {
         while (list != null) {
             System.out.print(list.data + " ");
             list = list.next;
         }
     }
-
     /**
      * 1- take the 3 pointer curr=head, next=null,prev=null;
      * 2- itrate the loop until got the null curr!=null
@@ -45,7 +39,6 @@ public class ReverseLinkList {
         node = prev;
         return node;
     }
-
     public static void main(String[] args) {
         // Apporach-1 
         /**
@@ -55,7 +48,6 @@ public class ReverseLinkList {
          * 4- return the linkedlist
          *
          */
-
           LinkedList<Integer> linklist = new LinkedList<Integer>();
           linklist.add(1);
           linklist.add(2);
@@ -64,9 +56,7 @@ public class ReverseLinkList {
           linklist.add(5);
           System.out.println("before linkedlist "+linklist);
           System.out.println("after reverse linkedlist "+reverseLinkList2(linklist));
-
-        //Appoarch-2 basic impl 
-
+        //Appoarch-2 basic impl
 //        ReverseLinkList list = new ReverseLinkList();
 //
 //        list.head = new Node(85);
@@ -82,10 +72,7 @@ public class ReverseLinkList {
 //        System.out.println(" ");
 //        System.out.println("after reverse ");
 //        list.printlist(head);
-
-
     }
-
      public static LinkedList<Integer> reverseLinkList2(LinkedList<Integer> list){
         int l=0 , r = list.size()-1;
         while(l<r){

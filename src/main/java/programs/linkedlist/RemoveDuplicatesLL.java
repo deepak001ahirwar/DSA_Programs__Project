@@ -75,10 +75,8 @@ public class RemoveDuplicatesLL {
         // second better Approach
         Node dummy = new Node(0);
         dummy.next = head;
-
         Node prev = dummy;
         Node current = head;
-
         while (current != null && current.next != null) {
             // If current node is a duplicate
             if (current.data == current.next.data) {
@@ -94,27 +92,22 @@ public class RemoveDuplicatesLL {
             }
             current = current.next;
         }
-
         return dummy.next;
-
     }
 
 
-
     /// Remove duplicates from an unsorted linked list
-
 //    Input: LinkedList: 5->2->2->4
 //    Output: 5->2->4
 //    Explanation: Given linked list elements are 5->2->2->4,
 //    in which 2 is repeated only. So, we will delete the extra
 //    repeated elements 2 from the linked list and the resultant
 //    linked list will contain 5->2->4
-
     public Node removeDuplicatesUnsorted(Node head) {
         Set<Node> set = new HashSet<Node>();
         Node prev = null;
         Node current = head;
-        while (current!= null) {
+        while (current != null) {
             if (!set.contains(current)) {
                 set.add(current);
                 prev = current;
@@ -122,10 +115,8 @@ public class RemoveDuplicatesLL {
             } else {
                 prev.next = current.next;
                 prev.next = current.next;
-
             }
         }
         return head;
-
     }
     }

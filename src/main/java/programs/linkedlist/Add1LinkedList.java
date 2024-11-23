@@ -16,9 +16,7 @@ public class Add1LinkedList {
         //    Add 1 to a Linked List Number
 //    Input: LinkedList: 4->5->6
 //    Output: 457
-
         Add1LinkedList list = new Add1LinkedList();
-
         // Creating the list: 1 -> 2 -> 3 -> 3 -> 4 -> 4 -> 5
         Node head = new Node(9);
 //        head.next = new Node(5);
@@ -27,7 +25,6 @@ public class Add1LinkedList {
 //        head.next.next.next.next = new Node(4);
 //        head.next.next.next.next.next = new Node(4);
 //        head.next.next.next.next.next.next = new Node(5);
-
         System.out.println("Original List:");
         list.printList(head);
         System.out.println("\nAfter adding 1:");
@@ -35,7 +32,6 @@ public class Add1LinkedList {
         Node result = list.addOneRecursive(head);
         list.printList(result);
     }
-
     // Utility function to print the list
     public void printList(Node node) {
         while (node != null) {
@@ -94,7 +90,6 @@ public class Add1LinkedList {
     }
 
     // 2- Optimal implementation with recursive solution
-
     /**
      * 1- call the helper Method  if the carray is 1 then create new Node and
      *  update the newnode.next = head; return the newnode otherwise return head

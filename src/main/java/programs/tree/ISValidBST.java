@@ -10,10 +10,8 @@ public class ISValidBST {
 
     boolean isBST(Node root) {
         // code here.
-
         return isBSTUtil(root,Integer.MIN_VALUE,Integer.MAX_VALUE);
     }
-
     boolean isBSTUtil(Node root, int min, int max) {
         if (root == null) {
             return true;

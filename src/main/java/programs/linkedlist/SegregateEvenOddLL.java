@@ -38,7 +38,6 @@ public class SegregateEvenOddLL {
      * 1- connect the node with even if the vale is even
      * 2- connect the node with odd if the vale is odd
      * 3- at the end connect the even next with odd head
-     *
      */
     public static  Node divide(Node head) {
         Node even = new Node(-1);
@@ -57,17 +56,11 @@ public class SegregateEvenOddLL {
             }
             curr = curr.next;
         }
-
         // Now connect the even.next with odd head;
         odd.next = null;
-
         even.next = oddHead.next;
-
         oddHead.next = null;
         return evenHead.next;
-
-
-
     }
 
 

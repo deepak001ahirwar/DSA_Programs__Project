@@ -86,7 +86,6 @@ public class AddNumberLinkedList {
     // Add Number Linked Lists( GFG)
 //    Input: num1 = 45 (4->5->null), num2 = 345 (3->4->5->null)
 //    Output:  3->9->0->null
-
     public static Node addTwoListsGFG(Node l1, Node l2) {
         Node head = null;
         Node temp = null;
@@ -118,7 +117,6 @@ public class AddNumberLinkedList {
         return reverseLinkedList(head);
 //        return head;
     }
-
 
     public  static Node reverseLinkedList(Node head) {
         Node prev = null;
