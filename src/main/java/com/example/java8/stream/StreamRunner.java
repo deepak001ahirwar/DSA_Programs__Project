@@ -224,6 +224,24 @@ public class StreamRunner {
                 .entrySet().forEach(System.out::println);
 
 
+        // example of string print the unique sorted way  and count of that number
+        System.out.println("========example of string print the unique sorted way  and count of that number=======");
+         // i - unique sorted
+        String input = "2,4,4,1,1,3,5";
+        // output: 1,2,3,4,5
+        String string = Stream.of(input.split(","))
+                .sorted().distinct()
+                .collect(Collectors.joining(","));
+        System.out.println("Unique sorted string: " + string);
+
+        // ii - frequency of number
+        String input2 = "2,4,4,1,1,3,5";
+        Stream.of(input2.split(","))
+                .map(Integer::parseInt)  // convert str to int using parseInt
+                .sorted()
+                .collect(Collectors.groupingBy(num -> num, Collectors.counting()))
+                .forEach((key, value) -> System.out.println(key + ": " + value));
+
 
     }
 
