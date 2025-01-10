@@ -9,9 +9,15 @@ public class LambdaExpressionRunner {
 
         LambdaExpression obj2 = () ->{System.out.println(" Hello GetName Expression");};
         obj2.getName();  // Output: HelloGetName Expression
+
+        Runnable runnable = () -> System.out.println("Running!");
+
     }
+
+
 }
 
+//@FunctionalInterface
 interface  LambdaExpression {
     /** AT the time only one abstract method allow in functional Interface
      * If we have to add the functinality then use the default and statci method
@@ -19,4 +25,6 @@ interface  LambdaExpression {
 
 //     String getExpression();
      void getName();
+
+//     void getExpression();
 }
