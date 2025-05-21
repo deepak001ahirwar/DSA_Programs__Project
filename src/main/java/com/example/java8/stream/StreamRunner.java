@@ -4,9 +4,12 @@ import lombok.Data;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -224,6 +227,14 @@ public class StreamRunner {
                 .entrySet().forEach(System.out::println);
 
 
+        List<Employee> list6 = employees.stream().sorted(Comparator.comparing(Employee::getSalary).reversed())
+                .toList();
+        OptionalInt max = employees.stream().mapToInt(Employee::getSalary).max();
+        System.out.println("Maximum Salary: " + max.getAsInt());
+        Optional<Employee> max1 = employees.stream().max(Comparator.comparing(Employee::getSalary));
+
+        System.out.println("Employee with maximum salary: " + max1.orElse(null));
+
         // example of string print the unique sorted way  and count of that number
         System.out.println("========example of string print the unique sorted way  and count of that number=======");
          // i - unique sorted
@@ -241,6 +252,71 @@ public class StreamRunner {
                 .sorted()
                 .collect(Collectors.groupingBy(num -> num, Collectors.counting()))
                 .forEach((key, value) -> System.out.println(key + ": " + value));
+
+        /**
+         *  find the second and first non repating characters   in the string
+         */
+
+        String  str22 ="India is a my country";
+        str22= str22.replaceAll("\\s+", "");
+        char [] array = str22.toCharArray();
+
+        // 1- simple approach
+        Map<Character,Integer> map = new HashMap<Character,Integer>();
+        for(Character ch : array) {
+            // Another way to do that
+            map.put(ch, map.getOrDefault(ch, 0)+1);
+        }
+        System.out.println(map);
+        boolean isNonRepative = false;
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            System.out.println("Character: " + entry.getKey() + ", Count: " + entry.getValue());
+            if (entry.getValue() == 1) {
+                if (!isNonRepative) {
+                    System.out.println("First Character " + entry.getKey() + " is non-repeating");
+                    isNonRepative = true;
+                } else {
+                    System.out.println("Second Character " + entry.getKey() + " is non-repeating");
+                    break;
+                }
+            }
+
+        }
+        // 2- character frequency and 2 non-repeating
+        /**
+         * 1- use the chars() method
+         * 2- typecast ro mapToObj (char)
+         * 3- grouping by
+         * 4- iterate the and filter that value has 1 skip count 1 and findfirst
+         */
+        Optional<Character> c1 = str22.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(num -> num, LinkedHashMap::new, Collectors.counting()))
+                .entrySet().stream().filter(entry -> entry.getValue() == 1).skip(1).findFirst().map(Map.Entry::getKey);
+        System.out.println("Second  non repeating Character " +c1.get());
+
+        /**
+         *  Sort the Employee list first salary then Name
+         *
+         */
+        Employee emp12 = new Employee(5,"Charlie",250000,"IT",30);
+        Employee emp22 = new Employee(2,"Bob",280000,"HR",35);
+        Employee emp32 = new Employee(3,"Alice",250000,"Finance",40);
+
+        List<Employee> listEmp = Arrays.asList(emp12, emp22,emp32);
+
+        List<Employee> sortedlist = listEmp.stream()
+                                        .sorted(Comparator.comparing(Employee::getSalary).reversed()
+                                        .thenComparing(Employee::getEmpName)).toList();
+        sortedlist.forEach(System.out::print);
+
+        // try with finally without catch
+        try {
+            int num2 = 1 / 0;
+        } finally {
+            System.out.println(" Run finally ");
+        }
+
 
 
     }

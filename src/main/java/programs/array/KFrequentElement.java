@@ -96,4 +96,23 @@ public class KFrequentElement {
 
 	}
 
+	public  void kFrequentElement(){
+		int[] nums = {1, 1, 1, 2, 2, 3};
+		int k=2;
+		// correct Apporach to solve th top k frequency problem
+		HashMap<Integer, Integer> map2 = new HashMap<>();
+		for (int num : nums) {
+			map2.put(num, map2.getOrDefault(num, 0) + 1);
+		}
+		PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>(
+				(a, b) -> b.getValue() - a.getValue()
+		);
+		pq.addAll(map2.entrySet());
+		List<Integer> result3 = new ArrayList<>();
+		while (k-- > 0) {
+			result3.add(pq.poll().getKey());
+		}
+		System.out.println(":result3 "+result3 );
+	}
+
 }

@@ -31,6 +31,8 @@ public class ThreadRunner {
 
         new Thread(() -> System.out.println("Direct by class " + Thread.currentThread().getName())).start();
 
+
+
     }
 
 

@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-class Employee {
+ class Employee {
 
     int empId;
     String empName;
