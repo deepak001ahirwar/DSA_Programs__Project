@@ -1,8 +1,8 @@
 package com.example.java8.stream;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -311,11 +311,21 @@ public class StreamRunner {
         sortedlist.forEach(System.out::print);
 
         // try with finally without catch
-        try {
-            int num2 = 1 / 0;
-        } finally {
-            System.out.println(" Run finally ");
-        }
+//        try {
+//            int num2 = 1 / 0;
+//        } finally {
+//            System.out.println(" Run finally ");
+//        }
+
+
+        System.out.println("     =====   ");
+        int temp [] = new int[2];
+        temp[0] = 4;
+        temp[1]= 7;
+        List<int[]> ls = new ArrayList<>();
+        ls.add(temp);
+        System.out.println(" ls "+ ls.get(0));
+
 
 
 

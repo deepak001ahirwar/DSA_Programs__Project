@@ -147,6 +147,18 @@ public class MapImplRunner {
         System.out.println("listStream:  "+listStream.get(0));
 
 
+      // print the map that has max values
+        int size = result.values().stream()
+                          .max(Comparator.comparingInt(List::size))
+                          .get().size();
+
+        Map<String, List<String>> collect2 = result.entrySet().stream()
+                                   .filter(key -> key.getValue().size() == size)
+                                   .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+        collect2.forEach((k, v) -> System.out.println(k+ " : "+ v));
+
+
         // print the duplicate
         int arr [] = {1,2,3,1,2,4};
 
@@ -169,6 +181,12 @@ public class MapImplRunner {
         List<Integer> list = hashMap.entrySet().stream()
                                     .filter(entry -> entry.getValue() > 1)
                                         .map(Map.Entry::getKey).toList();
+
+        // using the stream
+        List<Integer> list1 = Arrays.stream(arr).boxed().collect(Collectors.groupingBy(num -> num, Collectors.counting()))
+                             .entrySet().stream().filter(v -> v.getValue() > 1).map(Map.Entry::getKey).toList();
+        System.out.println("duplicate list1: "+list1);
+
         System.out.println("duplicate Arrays: "+duplicate);
 
         // remove the duplicate from the Arrays
@@ -198,9 +216,25 @@ public class MapImplRunner {
         Arrays.fill(arr,j,len,0);
         System.out.println( " Final Arrays: "+Arrays.toString(arr));
 
+        // problem move zero to end
+       int  arr25 [] = {1, 2, 0, 4, 3, 0, 5, 0};
+       int len25 = arr25.length;
+       int j25=0;
+       for(int i=0;i<len25;i++){
+           // check if the element not 0
+           if(arr25[i]!=0){
+               arr25[j25]=arr25[i];
+               j25++;
+           }
+       }
+       // fill the
+        Arrays.fill(arr25,j25,len25,0);
+
+        System.out.println( " Final Array 0 moved right: "+Arrays.toString(arr25));
+
 
         // top K frequent element
-        int[] nums = {1, 1, 1, 2, 2, 3};
+        int[] nums = {1, 1,5,5, 1, 3, 2, 2};
         int k = 2;
         // o/p -  1,2
 
@@ -210,17 +244,34 @@ public class MapImplRunner {
          */
 
         List<Integer> topKElemnt =
-                Arrays.stream(arr)
+                Arrays.stream(nums)
                 .boxed()  // convert Stream<Integer> to Stream<Integer>
                 .collect(Collectors.groupingBy(n -> n, Collectors.counting()))
                 .entrySet().stream()
-                .sorted(Comparator.comparingLong(Map.Entry::getValue))
+//                .sorted(Comparator.comparingLong(Map.Entry::getValue))
+                        .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .limit(k)
                 .map(Map.Entry::getKey)
 //                .forEach(System.out::println);
                 .toList();
 
         System.out.println(" Final topKElemnt : "+topKElemnt);
+
+        ///
+        System.out.println(" :comparingByValue ");
+
+        Arrays.stream(nums).boxed().collect(Collectors.groupingBy(num->num,Collectors.counting()))
+                .entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                     .forEach(System.out::println);
+
+        System.out.println(" use the comparingLong function");
+        Arrays.stream(nums).boxed().collect(Collectors.groupingBy(num->num,Collectors.counting()))
+                .entrySet().stream().sorted(Comparator.comparingLong(Map.Entry<Integer,Long>::getValue).reversed())
+                .forEach(System.out::println);
+
+
+
+
 
         // 2- second the use the priority Queue
 
@@ -297,6 +348,7 @@ public class MapImplRunner {
 
 
         //. Find the sum of numbers using  reduce()
+        System.out.println(" \\n ");
 
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4);
         Integer sum = numbers.stream().reduce(0, Integer::sum);
@@ -350,6 +402,8 @@ public class MapImplRunner {
         List<Integer> numbers3 = Arrays.asList(1, 2, 3, 4, 5, 6);
         Map<Boolean, List<Integer>> collect1 = numbers3.stream().collect(Collectors.partitioningBy(n -> n % 2 == 0));
 
+
+        System.out.println("partitioningBy:  "+collect1);
         //16. Find the second highest number in a list.
         List<Integer> numbers5 = Arrays.asList(10, 20, 30, 40, 50);
 
@@ -359,7 +413,8 @@ public class MapImplRunner {
         System.out.println("secondHighestFound: "+secondHighestFound);
 
         System.out.println("groupingBy: Emplyee: ");
-        emplist.stream().collect(Collectors.groupingBy(Employee::getDepartment)).entrySet().forEach(System.out::println);
+        emplist.stream().collect(Collectors.groupingBy(Employee::getDepartment))
+                .entrySet().forEach(System.out::println);
 
         // UnsupportedOperationException
 //        List<Integer> arrList = Arrays.asList(1,2,3)  ;

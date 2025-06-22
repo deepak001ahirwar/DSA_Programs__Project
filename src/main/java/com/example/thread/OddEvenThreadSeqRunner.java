@@ -14,15 +14,16 @@ public class OddEvenThreadSeqRunner {
         Object obj = new Object();
         Thread t1 = new Thread(() -> {
             // Odd numbers
-            for (int i = 1; i <= 10; i += 2) {
+            for (int i = 1; i <= 9; i += 2) {
                 synchronized (obj) {
-                    System.out.println("Odd: " + i);
+//                    System.out.println("Odd: " + i);
+                    System.out.print( i);
                     obj.notify();
                     try {
-                        if (i < 9) {
-                            System.out.println("Inside the odd wait => " + i);
+//                        if (i < 9) {
+//                            System.out.println("Inside the odd wait => " + i);
                             obj.wait();
-                        }
+//                        }
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -34,11 +35,12 @@ public class OddEvenThreadSeqRunner {
             // Even numbers
             for (int i = 2; i <= 10; i += 2) {
                 synchronized (obj) {
-                    System.out.println("Even: " + i);
+//                    System.out.println("Even: " + i);
+                    System.out.print(", " + i +" , ");
                     obj.notify();
                     try {
                         if (i < 10) {
-                            System.out.println("Inside the even wait => " + i);
+//                            System.out.println("Inside the even wait => " + i);
                             obj.wait();
                         }
                     } catch (InterruptedException e) {
