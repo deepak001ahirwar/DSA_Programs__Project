@@ -300,16 +300,27 @@ public class StreamRunner {
          *
          */
         Employee emp12 = new Employee(5,"Charlie",250000,"IT",30);
+        Employee emp122 = new Employee(6,"Ram ",350000,"IT",30);
         Employee emp22 = new Employee(2,"Bob",280000,"HR",35);
+        Employee emp222 = new Employee(7,"Mohan",380000,"HR",35);
         Employee emp32 = new Employee(3,"Alice",250000,"Finance",40);
+        Employee emp322 = new Employee(8,"Karan",150000,"Finance",40);
 
-        List<Employee> listEmp = Arrays.asList(emp12, emp22,emp32);
+        List<Employee> listEmp = Arrays.asList(emp12,emp122,emp322 ,emp222,emp22,emp32);
 
         List<Employee> sortedlist = listEmp.stream()
                                         .sorted(Comparator.comparing(Employee::getSalary).reversed()
                                         .thenComparing(Employee::getEmpName)).toList();
         sortedlist.forEach(System.out::print);
 
+        // fetch the department wise higest salary
+        System.out.println(" fetch the department wise higest salary ");
+        Map<String, Optional<Employee>> collect1 = listEmp.stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment,
+                Collectors.maxBy(Comparator.comparing(Employee::getSalary))));
+        collect1.forEach((dept,salary)->{
+            System.out.println( " Department: "+dept +"   "+" Salary: "+salary);
+        });
         // try with finally without catch
 //        try {
 //            int num2 = 1 / 0;
@@ -326,6 +337,10 @@ public class StreamRunner {
         ls.add(temp);
         System.out.println(" ls "+ ls.get(0));
 
+
+        List<Employee> list7 = listEmp.stream().sorted(Comparator.comparingLong(Employee::getSalary))
+                .distinct().toList();
+        System.out.println(" list7: "+list7);
 
 
 
